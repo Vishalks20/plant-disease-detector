@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+env/
+.env
+*.egg-info/
+
+# Model & Data (too large for git)
+models/*.h5
+models/*.pkl
+data/raw/
+data/processed/
+static/uploads/
+logs/
+reports/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

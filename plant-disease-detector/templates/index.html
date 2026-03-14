@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plant Disease Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-icon">🌿</span>
+      <span>PlantMD</span>
+    </div>
+    <div class="nav-links">
+      <a href="https://github.com/YOUR_USERNAME/plant-disease-detector" target="_blank">GitHub</a>
+      <a href="/api/health">API Status</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Detect Plant Diseases<br><span class="highlight">Instantly</span></h1>
+      <p class="subtitle">Upload a leaf photo — our AI identifies diseases across 14 plant species with treatment recommendations.</p>
+    </section>
+
+    <div class="upload-card" id="uploadCard">
+      <div class="dropzone" id="dropzone">
+        <div class="drop-icon">🍃</div>
+        <p class="drop-title">Drop a leaf image here</p>
+        <p class="drop-sub">or click to browse</p>
+        <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden/>
+        <button class="btn-upload" onclick="document.getElementById('fileInput').click()">
+          Choose Image
+        </button>
+      </div>
+
+      <div class="preview-section" id="previewSection" style="display:none;">
+        <img id="previewImg" src="" alt="Preview"/>
+        <div class="preview-actions">
+          <button class="btn-primary" id="analyzeBtn">🔬 Analyze</button>
+          <button class="btn-ghost" id="clearBtn">✕ Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-card" id="resultCard" style="display:none;">
+      <div class="result-header" id="resultHeader"></div>
+      <div class="result-body" id="resultBody"></div>
+    </div>
+
+    <section class="stats-row">
+      <div class="stat"><span class="stat-num">38</span><span class="stat-label">Disease Classes</span></div>
+      <div class="stat"><span class="stat-num">14</span><span class="stat-label">Plant Species</span></div>
+      <div class="stat"><span class="stat-num">96%</span><span class="stat-label">Accuracy</span></div>
+      <div class="stat"><span class="stat-num">87K</span><span class="stat-label">Training Images</span></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
